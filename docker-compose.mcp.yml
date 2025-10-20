@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  mcp-server:
+    build: .
+    container_name: mcp-server
+    restart: unless-stopped
+    ports:
+      - "8439:8439"
+    networks:
+      - docker_default      # ← 改成和下面一样
+
+networks:
+  docker_default:
+    external: true
